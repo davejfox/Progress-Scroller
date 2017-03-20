@@ -1,0 +1,28 @@
+header,
+footer {
+    display: block;
+    padding: 500px 0;
+    background: #000;
+    text-align: center;
+}
+
+header h1,
+footer h2 {
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+section p {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
