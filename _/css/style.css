@@ -48,7 +48,10 @@ section p:last-child { margin-bottom: 0; }
 .progress-scroller { position: relative; padding: 40px 0; overflow: hidden; }
 
 .progress-bar { position: fixed; left: 0; top: -20px; height: 20px; background: #ccc; display: block; width: 100%; min-width: 0%; max-width: 100%; z-index: 9999; overflow: hidden; transition: top 0.3s ease; }
-.progress-bar p { color: #000; text-transform: uppercase; position: absolute; left: 0; top: 0; width: 100%; font-size: 12px; z-index: 10; margin: 0; padding: 0 0 0 25px; max-width: none; line-height: 20px; }
+.progress-bar p { color: #000; text-transform: uppercase; position: absolute; left: 0; top: 0; width: 100%; font-size: 12px; z-index: 10; margin: 0; padding: 0 0 0 25px; max-width: none; line-height: 20px; text-align: center; }
+.progress-bar a { position: absolute; top: 0; display: block; z-index: 9999; }
+.progress-bar a.prev { left: 0; }
+.progress-bar a.next { right: 0; }
 
 .progess { display: block; width: 0; height: 20px; background: #55c4f5; position: relative; z-index: 1; }
 
