@@ -1,21 +1,56 @@
+/*
+
+if page has more than one progress scroller {
+	
+	use script that creates ID's, prev next button etc
+}
+
+else {
+	use script that just creates one standard progress scoller. 
+}
+
+both should only work if progress scroller section is larger than the screen.
+
+
+
+*/
+
+
+
+
+
+
+
 jQuery(document).ready(function($) {
+
+	var count = 0;
 			
-	$(".progress-scroller").each(function(i) {
+	$(".progress-scroller").each(function(index) {
+
+		count ++;
 
 		var titletext = $(this).find("h1").text();
-		
-		$(this).attr("id", "section-" + i++);
+
+		$(this).find().next(".progress-scroller").addClass('class_name');
+
+
+		$(this).attr("id", "section-" + count);
 
 		// if($(".progress-scroller").length > 1) {
 		
 		// 	$(".progress-scroller").each(function(e) {
-				$(this).append("<div class='progress-bar'><p>" + titletext + "</p><a class='prev' href='#next'>Previous Section</a><a class='next' href='#next'>Next Section</a><div class='progess'></div></div>");
+				$(this).append("<div class='progress-bar'><p>" + titletext + "</p><a class='prev' href='#section-" + (count - 1) +"'>Previous Section</a><a class='next' href='#section-" + (count + 1) +"'>Next</a><div class='progess'></div></div>");
 		// 	});
 		// } else {
 		// 	$(this).append("<div class='progress-bar'></div>");
 		// }
 
+
+
 	});
+
+
+	
 });
 
 
@@ -43,8 +78,8 @@ $(window).scroll(function() {
 		var top_o_dis = $(this).offset().top;
 		var height_of_object = $(this).outerHeight();
 
-		console.log("scrollPercent", scrollPercent);
-		console.log("murkmurk", murkmurk);
+		// console.log("scrollPercent", scrollPercent);
+		// console.log("murkmurk", murkmurk);
 
 		//if ((height_of_object >= top_o_dis)) {
 		$(this).find('.progess').css('width', murkmurk +"%"  );
@@ -63,5 +98,29 @@ $(window).scroll(function() {
 		if ((top_of_window > bottom_of_object - 20)) {
 			$(this).find('.progress-bar').removeClass("fix").addClass("fix-bottom");
 		}
+	});
+});
+
+
+
+jQuery(document).ready(function($) {
+	
+	$(function() {
+
+		$(".progress-bar a").click(function(e) {
+
+			if (location.pathname.replace(/^\//,"") == this.pathname.replace(/^\//,"") || location.hostname == this.hostname) {
+
+				var target = $(this.hash);
+
+				target = target.length ? target : $("[name=" + this.hash.slice(1) +"]");
+					if (target.length) {
+					e.preventDefault();
+					$("html,body").stop().animate({
+						scrollTop: target.offset().top
+					}, 1200);
+				}
+			}
+		});
 	});
 });
