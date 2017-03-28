@@ -10,6 +10,12 @@ jQuery(document).ready(function($) {
 		var prev_link = (section_count - 1);
 		var next_link = (section_count + 1);
 
+		// Add ID's to each section, based on their order. This is used for the previous/next links, and is only required if there is more than 1.
+		if (total_number_of_sections > 1) {
+			$(this).attr("id", "section-" + section_count);
+		}
+
+
 		if ($(this).attr("data-title")) {
 			// If the section has a data-title, this will be used as the section title.
 			var section_title = "<p>" + $(this).attr("data-title") + "</p>";
@@ -52,11 +58,6 @@ jQuery(document).ready(function($) {
 		} else {
 			// Only one section. No "previous" or "next" required.
 			$(this).append("<div class='progress-bar'>" + section_title + "<div class='progess'></div></div>");
-		}
-
-		// Add ID's to each section, based on their order. This is used for the previous/next links, and is only required if there is more than 1.
-		if (total_number_of_sections > 1) {
-			$(this).attr("id", "section-" + section_count);
 		}
 	});
 
