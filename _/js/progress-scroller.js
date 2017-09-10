@@ -17,10 +17,12 @@ jQuery(document).ready(function($) {
 
 
 		if ($(this).attr("data-title")) {
+
 			// If the section has a data-title, this will be used as the section title.
 			var section_title = "<p>" + $(this).attr("data-title") + "</p>";
 
 		} else {
+			
 			// Edit the text between the paragraph tags if you would prefer something else.
 			var section_title = "<p>This Section</p>";
 		}
@@ -44,14 +46,17 @@ jQuery(document).ready(function($) {
 		}
 		
 		if (total_number_of_sections > 1 && section_count === 1) { 
+
 			// Multiple sections, this is the first. Only has "next" link.
 			$(this).append("<div class='progress-bar'>" + section_title + "<a class='next' href='#section-" + next_link +"'>" + next_title +"</a><div class='progess'></div></div>");
 		
 		} else if (section_count > 1 && section_count < total_number_of_sections) {
+
 			// Multiple sections, these are all the ones in the middle. Has both "previous" and "next" links.
 			$(this).append("<div class='progress-bar'>" + section_title + "<a class='prev' href='#section-" + prev_link +"'>" + prev_title + "</a><a class='next' href='#section-" + next_link +"'>" + next_title +"</a><div class='progess'></div></div>");
 		
 		} else if (total_number_of_sections > 1 && section_count === total_number_of_sections) {
+
 			// Multiple sections, this is the last. Only has "previous" link.
 			$(this).append("<div class='progress-bar'>" + section_title + "<a class='prev' href='#section-" + prev_link +"'>" + prev_title + "</a><div class='progess'></div></div>");
 		
